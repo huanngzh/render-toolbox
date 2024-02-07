@@ -82,10 +82,10 @@ class SceneHandler:
         vertex_color: Vector = None,
     ):
         if type == "vertex_colored":
-            import_vertex_colored_models(filepath, vertex_color)
+            result = import_vertex_colored_models(filepath, vertex_color)
         elif type == "obj":
             base_name = os.path.basename(filepath)
-            bpy.ops.wm.obj_import(
+            result = bpy.ops.wm.obj_import(
                 filepath=filepath,
                 directory=os.path.dirname(filepath),
                 files=[{"name": base_name}],
@@ -93,9 +93,12 @@ class SceneHandler:
                 up_axis=up_axis,
             )
         elif type == "glb":
-            bpy.ops.import_scene.gltf(filepath=filepath)
+            result = bpy.ops.import_scene.gltf(filepath=filepath)
         else:
             raise ValueError(f"Unsupported object type: {type}")
+
+        if result != {"FINISHED"}:
+            raise Exception(f"Failed to import vrm: {result}")
 
     def modify_vertex_color(self, vertex_color: Tuple[float, float, float]):
         for obj in self.data_meshes:

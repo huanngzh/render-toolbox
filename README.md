@@ -48,13 +48,15 @@ cam_default = scener.init_camera(camera_lens, camera_sensor_width)
 ```
 
 **Import object.**
-Now formats including object with color on vertex(exported by [trimesh](https://github.com/mikedh/trimesh)), object with mtl, glb are supported. You can use `type` to select one of it.
+Now formats including object with color on vertex(exported by [trimesh](https://github.com/mikedh/trimesh)), object with mtl, glb, vrm are supported. You can use `type` to select one of it.
 ```Python
 scener.import_object(type="vertex_colored", filepath="**.obj")
 # Or import object with mtl. You may need to specify the forward-axis and up-axis, with "Y" and "Z" are default values.
 scener.import_object(type="obj", filepath="**.obj")
 # Or import glb
 scener.import_object(type="glb", filepath="**.glb")
+# Or import vrm (VRM is an extension of glTF 2.0, so supported by the same way as glb)
+scener.import_object(type="glb", filepath="**.vrm")
 ```
 
 Other functions to process on the imported object.

@@ -57,7 +57,10 @@ def import_vertex_colored_models(
         `bpy.types.Object`: The imported object.
     """
     # Read data from file
-    vertices, colors, faces = read_trimesh_obj(filepath)
+    try:
+        vertices, colors, faces = read_trimesh_obj(filepath)
+    except:
+        return {"CANCELLED"}
 
     # Create a new mesh and object
     mesh = bpy.data.meshes.new(name="ColoredMesh")
@@ -124,7 +127,7 @@ def import_vertex_colored_models(
     else:
         obj.data.materials.append(material)
 
-    return obj
+    return {"FINISHED"}
 
 
 def modify_obj_vertex_color(obj: bpy.types.Object, color: Tuple):
