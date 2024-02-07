@@ -4,8 +4,7 @@ Blender toolbox for rendering 3D scenes.
 Tested in Blender 3.5.1 and Python 3.9.
 
 ## 📽️ Example
-
-https://github.com/huanngzh/render-toolbox/assets/78398294/6a380b48-1fd8-4769-a3f3-da3197a665a8
+https://github.com/huanngzh/render-toolbox/assets/78398294/b0e9ae6b-bfa4-4863-8194-3cbce523cd5b
 
 ## 🔨 Quick Start
 First, get your blender python env path to install necessary packages into blender python correctly. Run the following command in your Blender Python Console.
